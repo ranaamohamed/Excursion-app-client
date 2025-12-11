@@ -1,0 +1,31 @@
+@import "../../styles/variables";
+.destination-section {
+  .destination_data {
+    padding-top: 30px;
+  }
+  .dest_list {
+    text-align: left !important;
+    list-style: none;
+    padding-left: 25px !important;
+    li {
+      position: relative;
+      margin-bottom: 8px;
+      &:before {
+        content: "";
+        position: absolute;
+        left: -22px;
+        top: 4px;
+        width: 16px;
+        height: 16px;
+        background-image: url("../../imgs/yellow_marker.png"); /* your icon */
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+    // li::marker {
+    //   content: "📍";
+    //   color: green;
+    //   font-size: 18px;
+    // }
+  }
+}

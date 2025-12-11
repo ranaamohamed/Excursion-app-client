@@ -1,0 +1,34 @@
+@import "../../../styles/variables";
+.card-icon {
+  font-size: 1.5rem;
+  //   color: #fff;
+  background-color: transparent;
+  cursor: pointer;
+  border: 0;
+  display: block;
+  transition: color 0.3s;
+  padding: 0;
+  &:hover {
+    background-color: transparent;
+  }
+  .heart-icon-white {
+    color: #fff;
+    &:hover {
+      color: #ff4d4d; // hover effect
+    }
+  }
+  .heart-icon-border {
+    color: #ddd;
+    &:hover {
+      color: #ff4d4d; // hover effect
+    }
+  }
+  .book-icon {
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+.liked {
+  color: #ff4d4d !important;
+}

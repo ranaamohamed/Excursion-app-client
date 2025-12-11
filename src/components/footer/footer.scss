@@ -1,0 +1,69 @@
+@import "../../styles/variables";
+.home_footer {
+  background-color: #16243d;
+  // padding: 50px;
+  // position: fixed;
+  padding-top: 30px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  color: white;
+  text-align: left;
+  p {
+    letter-spacing: 0.8px;
+    font-size: 16px;
+    span {
+      color: #777;
+      font-size: 18px !important;
+    }
+    svg {
+      margin: 0 3px;
+      vertical-align: baseline;
+      font-size: 15px;
+    }
+  }
+  .footer_logo {
+    text-align: center;
+    margin: 20px 0;
+    img {
+      width: 200px;
+      height: auto;
+    }
+  }
+  .footer_list {
+    list-style: none;
+    text-align: left;
+    padding: 0;
+    li {
+      margin: 10px 0;
+      color: $text-color;
+      a {
+        color: $text-color;
+      }
+    }
+  }
+  h4 {
+    margin-bottom: 20px;
+  }
+  .Social_Links {
+    li {
+      display: inline-block !important;
+      margin: 10px;
+    }
+    .icon {
+      font-size: 25px;
+    }
+  }
+  hr {
+    border-top: 1px dashed #eee;
+  }
+  .copy_right {
+    background-color: #101a2c;
+    text-align: center;
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+  }
+}

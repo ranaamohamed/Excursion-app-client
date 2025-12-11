@@ -1,0 +1,68 @@
+@import "../../styles/variables";
+
+.home_navbar {
+  background-color: $secondary-color;
+  border: 0;
+  height: 70px;
+  outline: 0;
+  background-image: none;
+
+  .logo {
+    width: 160px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .nav-link,
+  .navbar_item {
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 18px;
+    border-bottom: 1px solid transparent;
+    transition: all ease-in-out 0.5s;
+  }
+
+  .icon {
+    font-size: 20px;
+    color: white;
+    transition: color 0.3s ease;
+    vertical-align: bottom;
+    &:hover {
+      color: $primary-color;
+    }
+  }
+  .tiket_icon {
+    rotate: -45deg;
+  }
+  // Nav items
+  .navbar-nav .nav-link.active,
+  .navbar-nav .nav-link.show {
+    color: white !important;
+    border-bottom-color: $primary-color;
+  }
+
+  .nav-items,
+  .nav-icons {
+    padding-top: 8px;
+  }
+
+  //   .nav-item {
+  //     font-weight: 400 !important;
+  //     font-size: 16px !important;
+  //     color: #542d72 !important;
+  //     margin-right: 15px !important;
+  //     padding: 0.5rem 1rem !important;
+  //     transition: color 0.3s ease;
+  //     text-transform: uppercase;
+
+  //     &:hover {
+  //       color: #b181d6;
+  //     }
+  //   }
+}

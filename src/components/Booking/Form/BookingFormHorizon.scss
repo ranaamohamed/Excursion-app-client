@@ -1,0 +1,130 @@
+@import "../../../styles/variables";
+.book_form_h {
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 6px;
+  padding: 20px;
+  margin: 20px 0;
+  //   position: fixed;
+  //   top: 30%;
+  //   bottom: 30%;
+  //   right: 5%;
+  h3 {
+    color: $heading-color;
+    font-weight: bold;
+  }
+  form {
+    margin: 20px 0;
+    .formLabel {
+      text-decoration: underline;
+      font-size: 16px;
+    }
+    .react-datetime-picker {
+      height: 50px;
+      display: block;
+      margin-bottom: 20px !important;
+      //box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      .react-datetime-picker__wrapper {
+        border: 1px solid #ddd !important;
+        background-color: white;
+        border-radius: 6px;
+        height: 50px;
+        padding: 0 8px;
+
+        input {
+          &:focus,
+          &:focus-visible {
+            outline: 0;
+          }
+        }
+      }
+      .react-datetime-picker__calendar-button {
+        //display: none;
+      }
+    }
+  }
+  .traveller-row {
+    .age-note {
+      font-size: 0.8rem;
+      color: gray;
+      .age_price {
+        color: $secondary-color;
+        font-weight: bold;
+        margin: 0 2px;
+      }
+    }
+
+    .counter button {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      padding: 0;
+      font-size: 1rem;
+      font-weight: bold;
+      &:hover {
+        background-color: $secondary-color;
+      }
+    }
+
+    span {
+      font-size: 1rem;
+      min-width: 20px;
+      text-align: center;
+    }
+  }
+
+  .child-ages {
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+  }
+}
+
+//pickup select
+.search-select {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%; // adjust as needed
+
+  input {
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    font-size: 0.95rem;
+  }
+
+  .results-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-top: 2px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    .dropdown-item {
+      cursor: pointer;
+      font-size: 0.9rem;
+      padding: 6px 12px;
+
+      &:hover {
+        background: #f5f5f5;
+      }
+      svg {
+        margin-right: 3px;
+      }
+    }
+  }
+}
+.leaflet-control {
+  z-index: 5000; // higher than modal
+}

@@ -1,0 +1,120 @@
+@import "../../../styles/variables";
+//order Review Section
+.details_btn {
+  border: 0 !important;
+  background-color: transparent !important;
+  color: #222 !important;
+  font-size: 14px !important;
+  text-decoration: underline !important;
+  //margin-bottom: 10px;
+}
+.promo-section {
+  .promo-input {
+    border-radius: 25px;
+    padding-left: 1rem;
+    &::placeholder {
+      color: #b0b0b0;
+    }
+  }
+
+  .apply-btn {
+    border-radius: 25px;
+    padding: 0 1.5rem;
+    font-weight: 500;
+    color: $primary-color;
+    background: #fff;
+    border: 1px solid #d1d1d1;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: #f4f4f4;
+    }
+  }
+}
+
+// .pay-btn {
+//   border-radius: 25px;
+//   background: #3366ff;
+//   font-weight: 600;
+//   border: none;
+//   transition: background 0.2s ease;
+
+//   &:hover {
+//     background: #274bdb;
+//   }
+// }
+
+a {
+  color: #0b0b3b;
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+//personal details sec
+
+.Personal_Details {
+  background: $light-blue-color;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  // max-width: 700px;
+  h5 {
+    margin-bottom: 20px;
+    text-decoration: underline;
+  }
+  padding: 20px;
+  .form-label {
+    font-weight: 600;
+    color: #0b0b3b;
+    margin-bottom: 0.4rem;
+  }
+
+  // .flag-input {
+  //   border-radius: 25px 0 0 25px !important;
+  //   background: #fff;
+  //   border-right: none;
+  //   display: flex;
+  //   align-items: center;
+  //   font-size: 0.9rem;
+  //   img {
+  //     border-radius: 2px;
+  //   }
+  // }
+
+  .phone-group {
+    .flag-dropdown {
+      border-radius: 25px 0 0 25px;
+      background: #fff;
+      border: 1px solid #d1d1d1;
+      border-right: none;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+
+      img {
+        border-radius: 2px;
+      }
+
+      &:hover {
+        background: #f8f8f8;
+      }
+    }
+
+    input {
+      border-radius: 0 25px 25px 0;
+      border-left: none;
+    }
+  }
+
+  a {
+    color: #0b0b3b;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

@@ -1,0 +1,144 @@
+@import "../../styles/variables";
+.auth_section {
+  padding: 20px;
+  min-height: 100vh;
+  height: 100vh;
+  @media only screen and (max-width: $minMedium) {
+    display: block !important;
+  }
+  .auth_info {
+    text-align: center;
+    padding: 0 20px;
+    flex: 1;
+  }
+
+  a {
+    text-decoration: underline !important;
+    color: $secondary-color !important;
+  }
+  .auth_form {
+    border-right: 1px solid #ddd;
+    flex: 1;
+    padding: 20px 40px;
+    @media only screen and (max-width: $minMedium) {
+      padding: 20px !important;
+      border: 0;
+    }
+  }
+  .title {
+    color: $secondary-color;
+    font-size: 28px;
+    text-align: center;
+    // margin-bottom: 20px;
+    font-weight: bold;
+    @media only screen and (max-width: $minMedium) {
+      display: none !important;
+    }
+  }
+  .SubTitle,
+  .form-check-label,
+  .formText {
+    font-size: 16px;
+    color: $heading-color;
+    text-align: center;
+    margin-bottom: 10px;
+    @media only screen and (max-width: $maxMobile) {
+      font-size: 12px;
+    }
+  }
+  strong {
+    font-weight: bold !important;
+  }
+  .form-check-label {
+    text-align: left !important;
+  }
+  .form-check-input {
+    border-radius: 2px;
+    border-color: black;
+  }
+  .form-floating,
+  .input-group {
+    margin: 10px 0;
+    background-color: white;
+    border: 1px solid #707070;
+    border-radius: 8px;
+    //margin-top: 10px;
+    height: 45px;
+    padding: 0;
+    &:focus,
+    &:active {
+      outline: 0;
+      border: 1px solid #707070;
+    }
+    .input-group-text {
+      background-color: transparent;
+      border: 0;
+    }
+    .formInput {
+      height: 40px;
+      min-height: 40px;
+      color: $heading-color;
+      border: 0;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: lighter;
+      &:focus,
+      &:active {
+        outline: 0;
+        border: 0;
+        background-color: white !important;
+        box-shadow: unset !important;
+      }
+    }
+    label {
+      font-size: 14px;
+      color: #cdcdcd;
+      padding: 10px;
+    }
+  }
+  .frmBtn {
+    margin: 25px 0 !important;
+  }
+  .gmail_icon {
+    margin: 0 3px;
+    width: 25px;
+    height: 25px;
+    vertical-align: sub;
+  }
+  .form_title {
+    // display: flex;
+    // justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .form_option {
+    font-size: 16px;
+    color: #797979;
+    line-height: 35px;
+    .form_option_btn {
+      color: $heading-color !important;
+      padding: 0 5px;
+      background-color: transparent;
+      border: 0;
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        border: 0;
+        outline: 0;
+      }
+    }
+    @media only screen and (max-width: 1200px) {
+      font-size: 15px;
+    }
+    @media only screen and (max-width: $minMedium) {
+      font-size: 20px;
+    }
+  }
+  .errorTxt {
+    color: red !important;
+    font-size: 10px;
+  }
+}
+.form-control.is-valid,
+.was-validated .form-control:valid {
+  background-image: none !important;
+}

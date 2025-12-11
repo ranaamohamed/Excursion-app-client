@@ -1,0 +1,67 @@
+@import "../../../styles//variables";
+.book_form {
+  background-color: white;
+  margin-top: -50px;
+  margin-bottom: 50px;
+  // margin: 0 20px;
+  //border-top: 3px solid $primary-color;
+  padding: 20px;
+  text-align: left;
+  border-radius: 50px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  .cmyNjn > .wrapper {
+    border-radius: 0;
+    border: 1px solid #ddd !important;
+    height: 50px;
+    z-index: 9999;
+  }
+  .react-datetime-picker {
+    height: 50px;
+    display: block;
+    //box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    .react-datetime-picker__wrapper {
+      border: 1px solid #ddd !important;
+      background-color: white;
+      border-radius: 50px;
+      height: 50px;
+      padding: 0 8px;
+    }
+    .react-datetime-picker__calendar-button {
+      display: none;
+    }
+  }
+  .frm_input {
+    height: 50px;
+    border-radius: 50px;
+    background-color: white;
+    border: 1px solid #ddd !important;
+  }
+  .bk_btn {
+    background-color: $primary-color;
+    height: 50px;
+    width: 100%;
+    border: 0;
+    border-radius: 50px;
+    // margin: 50px 0;
+    &:hover,
+    &:focus {
+      background-color: $primary-color;
+      border: 0;
+    }
+  }
+  .pick_input {
+    z-index: 9999;
+    .wrapper {
+      z-index: 9999;
+    }
+  }
+
+  .pick_input .wrapper,
+  .dYrfwz {
+    &:active,
+    &:hover,
+    &:focus {
+      box-shadow: none !important;
+    }
+  }
+}
