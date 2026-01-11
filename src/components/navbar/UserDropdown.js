@@ -9,6 +9,7 @@ import "./NavbarDropdown.scss";
 function UserDropdown() {
   const t = useTranslation();
   const navigate = useNavigate();
+
   const [MyName, setMyName] = useState(GetMyUser);
   const logOut = () => {
     localStorage.removeItem("token");
@@ -31,7 +32,10 @@ function UserDropdown() {
           <>
             <Dropdown.Item className="user-item">{MyName}</Dropdown.Item>
             <hr />
-            <Dropdown.Item className="user-item">
+            <Dropdown.Item
+              className="user-item"
+              onClick={() => navigate("/MyProfile")}
+            >
               <FiUser className="dropdown-icon" /> {t("Navbar.MyProfile")}
             </Dropdown.Item>
             <hr />

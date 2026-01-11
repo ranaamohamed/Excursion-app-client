@@ -13,7 +13,10 @@
   "Footer": {
     "Contact": "Contact",
     "Explore": "Explore",
-    "CopyRight": "© 2025 Copyrights by ZinoSolutions. All Rights Reserved"
+    "CopyRight": "© 2025 Copyrights by ZinoSolutions. All Rights Reserved",
+    "Address": "Address",
+    "Phone": "Phone",
+    "Email": "Email"
   },
   "Home": {
     "Heading": "Discover things to do",
@@ -24,7 +27,9 @@
     "Search": "Search",
     "RecommendedActivities": "Recommended activities",
     "ExploreAll": "Explore All",
-    "TopDestinations": "Top Destinations"
+    "TopDestinations": "Top Destinations",
+    "LearnMore": "Learn More",
+    "TourTypesTitle": "Choose Our Tour Types & Enjoy Now"
   },
   "contact": {
     "ContactTitle": "Contact Us",
@@ -55,8 +60,8 @@
     "Prices": "Prices",
     "lowtohighPrices": "low to high Prices",
     "highttolowPrices": "hight to low Prices",
-    "SortDescending": "Sort Descending",
-    "SortAscending": "Sort Ascending",
+    "SortDescending": "Sort Des",
+    "SortAscending": "Sort Asc",
     "BookNow": "Book Now",
     "Price": "Price",
     "Category": "Category",
@@ -170,5 +175,54 @@
     "WrongMsg": "Something went wrong!",
     "GoToHome": "Go To Home"
   },
-  "Destinations": { "DestinationTitle": "All Destinations" }
+  "Destinations": { "DestinationTitle": "All Destinations" },
+  "profile": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "address": "Address",
+    "AddressPlaceHolder": "Street, City, Country",
+    "nationality": "Nationality",
+    "nationalityPlaceH": "Select Nationality",
+    "gender": "Gender",
+    "genderPlaceH": "Select Gender",
+    "genderOptions": {
+      "male": "Male",
+      "female": "Female",
+      "other": "Other"
+    },
+    "dateOfBirth": "Date of birth",
+    "day": "Day",
+    "month": "Month",
+    "year": "Year",
+    "save": "Save Changes",
+    "update": "update",
+    "Edit": "Edit",
+    "password": {
+      "title": "Reset Password",
+      "description": "Enter the email address associated with your account and we'll send you a link to reset your password.",
+      "oldPassword": "Old Password",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm New Password",
+      "resetPassword": "Reset Now",
+      "passwordRules": "Passwords must have at least one non alphanumeric character., Passwords must have at least one uppercase ('A'-'Z').",
+      "errors": {
+        "oldPasswordRequired": "Old password is required",
+        "newPasswordRequired": "New password is required",
+        "passwordLength": "Password must be at least 8 characters",
+        "confirmPasswordRequired": "Please confirm your new password",
+        "passwordsDontMatch": "Passwords don't match",
+        "userIdNotFound": "User ID not found. Please log in again.",
+        "PasswordIsRequired": "Password is required",
+        "passwordUpper": "Password must contain at least one uppercase letter",
+        "passwordSpecial": "Password must contain at least one special character"
+      }
+    },
+    "errorrs": {
+      "Phone": "phone number is required",
+      "DOP": "Birthday is required",
+      "address": "Address is required"
+    }
+  }
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useTranslation, getLanguage } from "react-multi-lang";
 import LoadingPage from "../Loader/LoadingPage";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { FaEuroSign, FaRegSquareCheck } from "react-icons/fa6";
 import "react-range-slider-input/dist/style.css";
 import { getExerTrips, GetTripCategories } from "../../redux/slices/TripsSlice";
@@ -22,6 +22,7 @@ import RangeSlider from "react-range-slider-input";
 import TripCard from "../Shared/TripCard/TripCard";
 
 function TripList() {
+  const { route } = useParams();
   const t = useTranslation();
   const dispatch = useDispatch();
   const { state } = useLocation();
@@ -32,7 +33,7 @@ function TripList() {
   const [PlaceName, setPlaceName] = useState(t("Trips.All"));
   const [sortType, setSortType] = useState("alpha");
   const [sortOrder, setSortOrder] = useState("high");
-  const [selectedIds, setSelectedIds] = useState([]);
+  const [selectedIds, setSelectedIds] = useState(state?.trip_types || []);
   const [selectedDestinationIds, setSelectedDestinationIds] = useState(
     state?.destination_lst || []
   );
@@ -55,29 +56,23 @@ function TripList() {
   );
   const { DestinationList } = useSelector((state) => state.destinations);
   useEffect(() => {
-    // let formData = {
-    //   destination_id: 0,
-    //   lang_code: "en",
-    //   show_in_top: false,
-    //   show_in_slider: false,
-    //   currency_code: "EUR",
-    //   client_id: "",
-    //   trip_type: 0,
-    //   trip_types: null,
-    //   min_price: minPrice,
-    //   max_price: maxPrice,
-    // };
     dispatch(getExerTrips(formData));
     dispatch(GetTripCategories());
     let DestinationReq = {
       country_code: "",
       lang_code: localStorage.getItem("lang") || getLanguage(),
       currency_code: "",
-      leaf: true,
+      leaf: false,
     };
     dispatch(GetDestinations(DestinationReq));
     return () => {};
   }, [dispatch]);
+
+  useEffect(() => {
+    setSelectedIds(state?.trip_types);
+    setSelectedDestinationIds(state?.destination_lst);
+    return () => {};
+  }, [state]);
 
   useEffect(() => {
     //setTripList(ExerTrips);

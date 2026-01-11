@@ -3,7 +3,7 @@
   padding: 10px 0;
   display: block;
 }
-.card {
+.trip_card {
   height: 100%;
   text-align: left;
   padding: 10px 10px 0 10px;
@@ -17,6 +17,7 @@
   // .card-img-top {
   //   height: 200px;
   // }
+
   &:hover {
     transform: translateY(-5px);
   }
@@ -77,6 +78,15 @@
   }
   .card-footer {
     background-color: transparent;
+    padding: 10px 0;
+    // @media (max-width: $minSmall) {
+    //   padding: 10px 0;
+    // }
+    .flex_div {
+      @media (max-width: $minSmall) {
+        display: block !important;
+      }
+    }
   }
   .location {
     display: flex;
@@ -89,6 +99,9 @@
   .card-title {
     color: $heading-color;
     font-weight: bold;
+    @media (max-width: $minSmall) {
+      font-size: 18px;
+    }
   }
   .card-text {
     color: $text-color;
@@ -107,6 +120,12 @@
   .fac_list {
     .icon {
       color: $secondary-color;
+    }
+  }
+  .price_item {
+    @media (max-width: $minSmall) {
+      float: right;
+      clear: both;
     }
   }
 }

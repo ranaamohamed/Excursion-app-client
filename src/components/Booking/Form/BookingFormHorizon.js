@@ -135,7 +135,7 @@ function BookingFormHorizon({ trip_id, trip }) {
     onDateChange(today);
     return () => {};
   }, [trip]);
-  console.log("loadiing", loading);
+  //console.log("loadiing", loading);
   return (
     <div className="book_form_h">
       <h3>{t("Booking.BookFormHeader")}</h3>

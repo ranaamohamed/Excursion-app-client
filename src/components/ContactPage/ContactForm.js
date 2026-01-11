@@ -20,7 +20,7 @@ function ContactForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
+    //console.log("Form Submitted:", formData);
     // You can send data to API here
   };
 

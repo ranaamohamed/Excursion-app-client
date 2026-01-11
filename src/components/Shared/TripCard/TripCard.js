@@ -61,7 +61,7 @@ function TripCard({ trip, refreshTrips }) {
       className="w-100 h-100 card_link"
     >
       {" "}
-      <Card>
+      <Card className="trip_card">
         <div className="img-wrapper">
           <Card.Img variant="top" src={trip.default_img} />
           <div className="img-overlay">
@@ -120,7 +120,7 @@ function TripCard({ trip, refreshTrips }) {
                 ({trip.total_reviews} {t("Trips.Reviews")})
               </span>
             </div>
-            <div>
+            <div className="price_item">
               <span style={{ fontSize: "12px" }}>From </span>
 
               <span className="price">

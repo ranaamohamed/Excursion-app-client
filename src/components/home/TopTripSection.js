@@ -4,7 +4,7 @@ import LoadingPage from "../Loader/LoadingPage";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Button } from "react-bootstrap";
 import Carousel from "react-multi-carousel";
-
+import { motion } from "framer-motion";
 import {
   getExerTrips,
   getExerTripsCategory,
@@ -60,9 +60,15 @@ function TopTripSection() {
   };
   // console.log("loading ", loading);
   return (
-    <section className="centerSection">
+    <motion.section
+      className="centerSection"
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.3 }}
+    >
       <Container>
-        <div className="d-flex justify-content-between align-items-center header_title">
+        <div className="d-lg-flex justify-content-between align-items-center header_title">
           <div className="header_title_left">
             <h2 className="fw-bold">{t("Home.RecommendedActivities")}</h2>
           </div>
@@ -89,7 +95,7 @@ function TopTripSection() {
         </div>
       </Container>
       {loading && <LoadingPage />}
-    </section>
+    </motion.section>
   );
 }
 

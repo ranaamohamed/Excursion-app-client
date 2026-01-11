@@ -9,11 +9,11 @@ function DestinationCard({ dest }) {
       <div className="image-wrapper mx-auto">
         <img
           src={
-            dest.img_path == null || dest.img_path == ""
+            dest?.img_path == null || dest?.img_path == ""
               ? "/images/no-img.jpg"
-              : dest.img_path
+              : dest?.img_path
           }
-          alt={dest.dest_name}
+          alt={dest?.dest_name}
           className="circle-image"
         />
 
@@ -33,7 +33,7 @@ function DestinationCard({ dest }) {
         className="circle-image mx-auto"
       /> */}
       <Card.Body>
-        <Card.Title>{dest.dest_name}</Card.Title>
+        <Card.Title>{dest?.dest_name}</Card.Title>
       </Card.Body>
     </Card>
     // <Card className="custom-card text-white rounded-4">

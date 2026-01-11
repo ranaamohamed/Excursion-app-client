@@ -8,12 +8,12 @@ import LoadingPage from "../Loader/LoadingPage";
 import { Button } from "react-bootstrap";
 import PopUp from "../Shared/popup/PopUp";
 import axios from "axios";
-
+import Swal from "sweetalert2";
 const GoogleLoginButton = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const t = useTranslation();
-  const [showPopup, setShowPopup] = useState(false); // State for popup visibility
+  // const [showPopup, setShowPopup] = useState(false); // State for popup visibility
   const { loading, message, success } = useSelector((state) => state.auth);
 
   const googleLogin = useGoogleLogin({
@@ -38,8 +38,9 @@ const GoogleLoginButton = (props) => {
           let data = { payload: formData, path: "/LoginGmail" };
           dispatch(LoginUser(data)).then((result) => {
             // let { isAuthRedirect, redirectPath } = props;
+            //console.log("result.payload ", result.payload);
             if (result.payload && result.payload.isSuccessed) {
-              setShowPopup(false);
+              //setShowPopup(false);
               //if user login successfully and his email is confirmed navigate to home and whole app , if no sholud verify mail first by OTP
               if (result.payload?.user?.emailConfirmed == true) {
                 // if (isAuthRedirect) {
@@ -49,7 +50,7 @@ const GoogleLoginButton = (props) => {
                 // }
                 const redirectTo =
                   localStorage.getItem("redirect_after_login") || "/";
-                console.log("redirectTo ", redirectTo);
+                //console.log("redirectTo ", redirectTo);
                 // 🧹 Remove it once used
                 localStorage.removeItem("redirect_after_login");
                 navigate(redirectTo);
@@ -60,7 +61,12 @@ const GoogleLoginButton = (props) => {
                 });
               }
             } else {
-              setShowPopup(true);
+              //setShowPopup(true);
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: result.payload?.message || result.payload,
+              });
             }
           });
         } else {
@@ -80,13 +86,18 @@ const GoogleLoginButton = (props) => {
           dispatch(RegisterUser(data)).then((result) => {
             if (result.payload && result.payload.isSuccessed) {
               //if user register successfully navigate to verify mail first by OTP
-              setShowPopup(false);
+              // setShowPopup(false);
               navigate("/verifyEmail", {
                 replace: true,
                 state: { path: "/" },
               });
             } else {
-              setShowPopup(true);
+              //setShowPopup(true);
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: result.payload?.message || result.payload,
+              });
             }
           });
         }
@@ -125,7 +136,7 @@ const GoogleLoginButton = (props) => {
           : t("Login.RegisterWithGoogle")}
       </Button>
       {loading && <LoadingPage />}
-      {showPopup == true ? (
+      {/* {showPopup == true ? (
         <PopUp
           show={showPopup}
           closeAlert={() => setShowPopup(false)}
@@ -133,7 +144,7 @@ const GoogleLoginButton = (props) => {
           type={success ? "success" : "error"}
           autoClose={3000}
         />
-      ) : null}
+      ) : null} */}
     </>
   );
 };

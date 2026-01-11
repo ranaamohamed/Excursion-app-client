@@ -11,6 +11,9 @@
   height: auto;
   color: white;
   text-align: left;
+  @media (max-width: $minSmall) {
+    text-align: center;
+  }
   p {
     letter-spacing: 0.8px;
     font-size: 16px;
@@ -33,6 +36,9 @@
     }
   }
   .footer_list {
+    @media (max-width: $minSmall) {
+      text-align: center;
+    }
     list-style: none;
     text-align: left;
     padding: 0;

@@ -4,12 +4,25 @@ $primary-color: #ff9d3d;
 // $primary-color: #f16a5f;
 $secondary-color: #015fc9;
 $text-color: #82828a;
-// $heading-color: #16243d;
+$success-color: #28a745;
+$success-hover: #218838;
 $light-blue-color: #f1fafe;
 $heading-color: rgb(27, 17, 92);
-
+$gray-color: #8b8b8b;
+$text-muted: #6c757d;
+$gray-light: #dee2e6;
+$danger-color: #dc3545;
+$border-color: #eee;
 //mediaqueries
 $maxMobile: 767px;
 $minMedium: 992px;
 $minSmall: 768px;
 $mediumMedia: 1000px;
+
+// Typography
+// $font-family-base: 'Myriad Pro','Source Sans Pro', sans-serif;
+$font-family-base: "Tajawal", sans-serif, "Cairo";
+$font-size-base: 1rem;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;

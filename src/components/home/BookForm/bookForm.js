@@ -44,9 +44,12 @@ export default function BookForm() {
             onChange={onDateChange}
             value={dateSel}
             disableClock={true}
-            // format="dd-MM-yyyy"
+            format="yyyy-MM-dd"
             required
-            // placeholder="Date"
+            //placeholder="Date"
+            dayPlaceholder="dd"
+            monthPlaceholder="mm"
+            yearPlaceholder="yyyy"
             calendarIcon={null}
             clearIcon={null}
             inputProps={{ placeholder: "Choose a date & time" }}
@@ -66,7 +69,11 @@ export default function BookForm() {
           />
         </Col> */}
         <Col md={4} xs={12}>
-          <Button type="submit" className="bk_btn">
+          <Button
+            type="submit"
+            className="bk_btn"
+            style={{ marginTop: "30px" }}
+          >
             {t("Home.Search")}
           </Button>
         </Col>

@@ -8,11 +8,12 @@ import { GetDestinations } from "../../redux/slices/destinationSlice";
 import DestinationCard from "../Shared/DestinationCard/DestinationCard";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
-    items: 5,
+    items: 4,
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
@@ -20,7 +21,7 @@ const responsive = {
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 3,
+    items: 2,
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
@@ -39,16 +40,22 @@ function TopDestSection() {
       country_code: "",
       lang_code: localStorage.getItem("lang") || getLanguage(),
       currency_code: "",
-      leaf: true,
+      leaf: false,
     };
     dispatch(GetDestinations(formData));
     return () => {};
   }, [dispatch]);
   // console.log("loading ", loading);
   return (
-    <section className="centerSection">
+    <motion.section
+      className="centerSection"
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.3 }}
+    >
       <Container>
-        <div className="d-flex justify-content-between align-items-center header_title">
+        <div className="d-lg-flex justify-content-between align-items-center header_title">
           <div className="header_title_left">
             {" "}
             <h2 className="fw-bold">{t("Home.TopDestinations")}</h2>
@@ -63,7 +70,7 @@ function TopDestSection() {
         </div>
         <div className="dest_lst">
           <Carousel responsive={responsive}>
-            {DestinationList.map((dest, index) => {
+            {DestinationList?.map((dest, index) => {
               return (
                 <div key={index} className="carousel_item">
                   {" "}
@@ -78,11 +85,10 @@ function TopDestSection() {
               );
             })}
           </Carousel>
-          ;
         </div>
       </Container>
       {loading && <LoadingPage />}
-    </section>
+    </motion.section>
   );
 }
 

@@ -5,6 +5,7 @@ import AuthReducer from "../redux/slices/authSlice";
 import BookingReducer from "../redux/slices/bookingSlice";
 import WishListReducer from "../redux/slices/wishListSlice";
 import GlobalSettingReducer from "../redux/slices/GlobalSettingSlice";
+import profileReducer from "../redux/slices/profileSlice";
 export const store = configureStore({
   reducer: {
     exertrips: ExerTripsReducer,
@@ -13,6 +14,7 @@ export const store = configureStore({
     booking: BookingReducer,
     GlobalSetting: GlobalSettingReducer,
     wishList: WishListReducer,
+    profile: profileReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

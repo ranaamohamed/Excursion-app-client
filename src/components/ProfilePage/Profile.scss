@@ -1,0 +1,109 @@
+@import "../../styles/variables";
+/* profile.scss */
+.profile-container {
+  padding: 40px 0;
+
+  .profile-card {
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    margin: 20px 0;
+    .form-control {
+      border: 1px solid #ddd !important;
+      background-color: white;
+      border-radius: 6px !important;
+      height: 40px !important;
+      //margin-bottom: 20px;
+      //padding: 0 8px !important;
+    }
+    label {
+      color: $text-color;
+    }
+    .react-datetime-picker {
+      height: 40px;
+      display: block;
+      //margin-bottom: 20px;
+      //box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      .react-datetime-picker__wrapper {
+        border: 1px solid #ddd !important;
+        background-color: white;
+        border-radius: 6px;
+        height: 40px;
+        padding: 0 8px;
+      }
+      .react-datetime-picker__calendar-button {
+        display: none;
+      }
+      .react-datetime-picker__inputGroup__input {
+        width: auto;
+      }
+      .react-datetime-picker__inputGroup__input:invalid {
+        background: transparent !important;
+      }
+    }
+  }
+
+  .profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .email {
+    font-size: 14px;
+    color: #777;
+  }
+  //image container
+  .profile-picture {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    .avatar-container {
+      position: relative;
+      width: 140px;
+      height: 140px;
+
+      .avatar-image {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 50%;
+        overflow: hidden;
+        background-color: #ffffff;
+        transition: transform 0.3s ease;
+      }
+
+      .camera {
+        position: absolute;
+        bottom: 26px;
+        right: 12px;
+        background: white;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        padding: 2px;
+
+        .camera-icon {
+          color: $primary-color;
+          font-weight: bold;
+          font-size: 32px;
+        }
+      }
+    }
+  }
+  .react-tel-input .form-control {
+    width: 100%;
+  }
+}

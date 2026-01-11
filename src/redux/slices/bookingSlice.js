@@ -21,10 +21,13 @@ export const SaveClientBooking = createAsyncThunk(
   "booking/SaveClientBooking",
   async (formData, { rejectWithValue }) => {
     try {
-      const response = await api.post(`/Booking/SaveClientBooking`, formData);
+      const response = await api.post(
+        `${BASE_URL}/Booking/SaveClientBooking`,
+        formData
+      );
       return response.data;
     } catch (error) {
-      console.log("catchhhhhhhh ");
+      //console.log("catchhhhhhhh ");
       return rejectWithValue(error.response?.data);
     }
   }
@@ -36,7 +39,7 @@ export const CalculateBookingPrice = createAsyncThunk(
   async (formData, { rejectWithValue }) => {
     try {
       const response = await api.post(
-        `/TravelClient/CalculateBookingPrice`,
+        `${BASE_URL}/TravelClient/CalculateBookingPrice`,
         formData,
         { skipAuth: true }
         // getAuthHeaders()
@@ -53,13 +56,13 @@ export const GetBookingSummary = createAsyncThunk(
   async (formData, { rejectWithValue }) => {
     try {
       const response = await api.post(
-        `/Booking/GetBookingSummary`,
+        `${BASE_URL}/Booking/GetBookingSummary`,
         formData
         //getAuthHeaders()
       );
       return response.data;
     } catch (error) {
-      console.log("catch err ", error);
+      //console.log("catch err ", error);
       return rejectWithValue(error.response.data);
     }
   }
@@ -70,7 +73,7 @@ export const ConfirmBooking = createAsyncThunk(
   async (formData, { rejectWithValue }) => {
     try {
       const response = await api.post(
-        `/Booking/ConfirmBookingLst`,
+        `${BASE_URL}/Booking/ConfirmBookingLst`,
         formData
         // getAuthHeaders()
       );
@@ -86,7 +89,7 @@ export const DeleteBooking = createAsyncThunk(
   async (booking_id, { rejectWithValue }) => {
     try {
       const response = await api.post(
-        `/Booking/DeleteBooking?booking_id=` + booking_id
+        `${BASE_URL}/Booking/DeleteBooking?booking_id=` + booking_id
         // getAuthHeaders()
       );
       return response.data;
@@ -102,7 +105,7 @@ export const CancelBooking = createAsyncThunk(
   async (booking_id, { rejectWithValue }) => {
     try {
       const response = await api.post(
-        `/Booking/CancelBooking?booking_id=` + booking_id
+        `${BASE_URL}/Booking/CancelBooking?booking_id=` + booking_id
         // getAuthHeaders()
       );
       return response.data;
@@ -117,7 +120,8 @@ export const GetMyBooking = createAsyncThunk(
   async (formData, { rejectWithValue }) => {
     try {
       const response = await api.post(
-        `/Booking/GetMyBooking?booking_code=` + formData.booking_code,
+        `${BASE_URL}/Booking/GetMyBooking?booking_code=` +
+          formData.booking_code,
         formData
         // getAuthHeaders()
       );
@@ -145,7 +149,7 @@ export const fetchBookingCount = createAsyncThunk(
       // Assuming the API returns a simple number like in your example
       return response.data;
     } catch (error) {
-      console.error("Error fetching booking count:", error);
+      //console.error("Error fetching booking count:", error);
       // Return 0 on error but don't show error to user for count
       return 0;
     }
@@ -172,7 +176,7 @@ const bookingSlice = createSlice({
         state.loading = false;
       })
       .addCase(SaveClientBooking.rejected, (state, action) => {
-        console.log("reject save booking");
+        //console.log("reject save booking");
         state.loading = false;
         state.error = action.payload;
       })
@@ -192,12 +196,12 @@ const bookingSlice = createSlice({
         state.error = null;
       })
       .addCase(GetBookingSummary.fulfilled, (state, action) => {
-        console.log("full state");
+        //console.log("full state");
         state.loading = false;
         state.BookingData = action.payload;
       })
       .addCase(GetBookingSummary.rejected, (state, action) => {
-        console.log("reject state");
+        //console.log("reject state");
         state.loading = false;
         state.error = action.payload;
       })

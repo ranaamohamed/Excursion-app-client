@@ -54,7 +54,7 @@ export const fetchWishlistCount = createAsyncThunk(
       // Assuming the API returns a simple number like in your example
       return response.data;
     } catch (error) {
-      console.error("Error fetching wishlist count:", error);
+      //console.error("Error fetching wishlist count:", error);
       // Return 0 on error but don't show error to user for count
       return 0;
     }
@@ -73,7 +73,7 @@ const wishListSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(GetClientWishList.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
         state.error = null;
       })
       .addCase(GetClientWishList.fulfilled, (state, action) => {
@@ -89,11 +89,11 @@ const wishListSlice = createSlice({
         state.error = null;
       })
       .addCase(AddTripToWishList.fulfilled, (state, action) => {
-        console.log("fulfilled");
+        //console.log("fulfilled");
         state.loading = false;
       })
       .addCase(AddTripToWishList.rejected, (state, action) => {
-        console.log("reject add");
+        // console.log("reject add");
         state.loading = false;
         state.error = action.payload;
       })

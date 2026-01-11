@@ -1,19 +1,30 @@
 @import "../../styles/variables";
 .landing_home {
+  margin-top: 70px;
   background-image: url("../../imgs/home-bg.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%;
-  min-height: 500px;
-  max-height: 500px;
+  min-height: 80vh;
   width: 100%;
-  padding: 5% 10%;
+  padding: 0 10%;
   text-align: left;
+  display: flex;
+  align-items: center; /* vertical center */
+  // z-index: 1;
+  position: relative;
+  @media (max-width: 1024px) {
+    min-height: 50vh;
+  }
+  @media (max-width: $maxMobile) {
+    background-image: none;
+    min-height: 50vh;
+    justify-content: center;
+  }
   .heading_content {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    //justify-content: start;
   }
   .main_title {
     z-index: 8;
@@ -25,6 +36,14 @@
     font-weight: bold;
     font-size: 45px;
     visibility: visible;
+    @media (max-width: $minSmall) {
+      font-size: 25px;
+      line-height: normal;
+    }
+    @media (max-width: 1024px) {
+      font-size: 35px;
+      line-height: normal;
+    }
   }
   .main_btn {
     background-color: $primary-color;

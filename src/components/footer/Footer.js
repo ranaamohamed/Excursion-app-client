@@ -20,7 +20,7 @@ export default function Footer() {
         </div>
         <hr />
         <Row>
-          <Col>
+          <Col md={4} xs={12}>
             <h4>{t("Footer.Explore")}</h4>
             <ul className="footer_list">
               <li>
@@ -41,14 +41,14 @@ export default function Footer() {
               </li>
             </ul>
           </Col>
-          <Col>
+          <Col md={4} xs={12}>
             <h4>{t("Footer.Contact")}</h4>
             <ul className="footer_list">
               <li>
                 <p>
                   <span>
                     {" "}
-                    <FiHome /> Address:
+                    <FiHome /> {t("Footer.Address")}:
                   </span>{" "}
                   hurghada,Egypt
                 </p>
@@ -58,7 +58,7 @@ export default function Footer() {
                   <span>
                     {" "}
                     <FiPhone />
-                    Phone:
+                    {t("Footer.Phone")}:
                   </span>{" "}
                   1234567811{" "}
                 </p>
@@ -67,14 +67,14 @@ export default function Footer() {
                 <p>
                   <span>
                     <FiMail />
-                    Email:
+                    {t("Footer.Email")}:
                   </span>{" "}
                   reservation@test.com
                 </p>
               </li>
             </ul>
           </Col>
-          <Col>
+          <Col md={4} xs={12}>
             <ul className="Social_Links">
               <li className="icon">
                 <FaFacebookF />

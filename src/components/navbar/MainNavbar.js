@@ -12,6 +12,7 @@ import UserDropdown from "./UserDropdown";
 import CurrencyDropdown from "./CurrencyDropdown";
 import { fetchWishlistCount } from "../../redux/slices/wishListSlice";
 import { fetchBookingCount } from "../../redux/slices/bookingSlice";
+import TripsDropdown from "./TripsDropdown";
 function MainNavbar() {
   const t = useTranslation();
   const [MyName, setMyName] = useState("");
@@ -37,13 +38,16 @@ function MainNavbar() {
   }, [clientId]);
 
   return (
-    <Navbar expand="lg" className="home_navbar">
+    <Navbar fixed="top" expand="lg" className="home_navbar">
       <Container>
         <Navbar.Brand href="#home" className="logo">
           <img src="/images/logo.png" alt="exercusion_system_logo" />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="booking_navbar">
+        {/* Toggle button for mobile view */}
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
+        {/* Navbar links and icons */}
+        <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <NavLink to="/" className="navbar_item nav-item nav-link" end>
               {t("Navbar.Home")}
@@ -54,7 +58,8 @@ function MainNavbar() {
             </Link> */}
 
             <NavLink to="/trips" className="navbar_item nav-item nav-link" end>
-              {t("Navbar.Trips")}
+              <TripsDropdown />
+              {/* {t("Navbar.Trips")} */}
             </NavLink>
             <NavLink
               to="/destinations"
@@ -76,17 +81,17 @@ function MainNavbar() {
           {/* <NavLink to="/auth" className="nav-item nav-link">
             <FiUser className="icon" />
           </NavLink> */}
-          <Nav.Link>
+          <Nav.Link className="nav_icon">
             <CurrencyDropdown />
           </Nav.Link>
           {/* Language switcher dropdown */}
-          <Nav.Link>
+          <Nav.Link className="nav_icon">
             <LanguageDropdown />
           </Nav.Link>
 
           <NavLink
             to="/MyWishing"
-            className="nav-item nav-link"
+            className="nav-item nav-link nav_icon"
             style={{ position: "relative" }}
           >
             <FiHeart className="icon" />
@@ -107,7 +112,7 @@ function MainNavbar() {
           </NavLink>
           <NavLink
             to="/MyBooking"
-            className="nav-item nav-link"
+            className="nav-item nav-link nav_icon"
             style={{ position: "relative" }}
           >
             <FaTicket className="icon tiket_icon" />
@@ -127,7 +132,7 @@ function MainNavbar() {
               </Badge>
             )}
           </NavLink>
-          <Nav.Link>
+          <Nav.Link className="nav_icon">
             <UserDropdown />
           </Nav.Link>
           {/* Logout icon if user is logged in */}

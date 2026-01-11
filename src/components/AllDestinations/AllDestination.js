@@ -47,7 +47,15 @@ function AllDestination() {
                           {dest?.children.length > 0 ? (
                             dest?.children.map((child, i) => (
                               <li key={i}>
-                                <Link key={i}> {child.dest_name}</Link>
+                                <Link
+                                  to={`/trips`}
+                                  key={i}
+                                  state={{
+                                    destination_lst: [child.parent_id],
+                                  }}
+                                >
+                                  {child.dest_name}
+                                </Link>
                               </li>
                             ))
                           ) : (

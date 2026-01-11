@@ -38,7 +38,7 @@ export default function SearchPlace({ setSelectedDest }) {
       country_code: "",
       lang_code: localStorage.getItem("lang") || getLanguage(),
       currency_code: "",
-      leaf: true,
+      leaf: false,
     };
     dispatch(GetDestinations(formData));
     return () => {};
@@ -59,23 +59,23 @@ export default function SearchPlace({ setSelectedDest }) {
   const handleOnSearch = (string, results) => {
     // onSearch will have as the first callback parameter
     // the string searched and for the second the results.
-    console.log(string, results);
+   // console.log(string, results);
   };
 
   const handleOnHover = (result) => {
     // the item hovered
-    console.log(result);
+    //console.log(result);
   };
 
   const handleOnSelect = (item) => {
     // the item selected
-    console.log(item);
+    //console.log(item);
     setPlaceId(item?.id);
     setSelectedDest(item?.id);
   };
 
   const handleOnFocus = () => {
-    console.log("Focused");
+    //console.log("Focused");
   };
 
   const formatResult = (item) => {
@@ -88,24 +88,21 @@ export default function SearchPlace({ setSelectedDest }) {
   console.log("DestinationList ", Places);
   return (
     <>
-      {DestinationList !== null && DestinationList.length > 0 ? (
-        <ReactSearchAutocomplete
-          items={Places}
-          // items={DestinationList}
-          onSearch={handleOnSearch}
-          onHover={handleOnHover}
-          onSelect={handleOnSelect}
-          onFocus={handleOnFocus}
-          // autoFocus
-          formatResult={formatResult}
-          //placeholder={t("Navbar.Destinations")}
-          showIcon={false}
-          className="pick_input"
-          //fuseOptions={{ keys: ["dest_name"] }}
-        />
-      ) : (
-        <></>
-      )}
+      {/* {DestinationList !== null && DestinationList.length > 0 ? ( */}
+      <ReactSearchAutocomplete
+        items={Places}
+        // items={DestinationList}
+        onSearch={handleOnSearch}
+        onHover={handleOnHover}
+        onSelect={handleOnSelect}
+        onFocus={handleOnFocus}
+        // autoFocus
+        formatResult={formatResult}
+        placeholder={t("Home.Destination")}
+        showIcon={false}
+        className="pick_input"
+        //fuseOptions={{ keys: ["dest_name"] }}
+      />
     </>
   );
 }

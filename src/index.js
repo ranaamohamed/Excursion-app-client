@@ -13,7 +13,7 @@ import de from "./translations/de.json";
 import ScrollToTop from "./components/Shared/ScrollToTop";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 setDefaultTranslations({ en, de });
-setDefaultLanguage("en");
+setDefaultLanguage(localStorage.getItem("lang") || "en");
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

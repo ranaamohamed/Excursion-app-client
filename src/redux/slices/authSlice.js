@@ -85,6 +85,35 @@ export const LoginUser = createAsyncThunk(
     return response;
   }
 );
+
+export const changePassword = createAsyncThunk(
+  "auth/changePassword",
+  async (
+    { userId, oldPassword, newPassword, confirmNewPassword },
+    { rejectWithValue }
+  ) => {
+    try {
+      const response = await api.post(
+        BASE_URL_AUTH + "/changePassword",
+        {
+          userId,
+          oldPassword,
+          newPassword,
+          confirmNewPassword,
+        }
+        //getAuthHeaders()
+      );
+      return response.data;
+    } catch (err) {
+      if (err.response && err.response.data) {
+        // ✅ controlled reject
+        return rejectWithValue(err.response.data);
+      }
+      // fallback
+      return rejectWithValue(err.message);
+    }
+  }
+);
 const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -92,8 +121,18 @@ const authSlice = createSlice({
     logout: (state) => {
       state.user = null;
       state.token = null;
+      state.loading = false;
+      state.error = null;
+      state.success = null;
+      state.message = null;
       localStorage.removeItem("token");
       localStorage.removeItem("user");
+    },
+    clearAuthState: (state) => {
+      state.loading = false;
+      state.error = null;
+      state.success = null;
+      state.message = null;
     },
   },
   extraReducers: (builder) => {
@@ -127,12 +166,18 @@ const authSlice = createSlice({
         state.message = action.payload?.message;
       })
       .addCase(LoginUser.fulfilled, (state, action) => {
-        state.user = action.payload?.user;
         state.loading = false;
         state.success = action.payload.isSuccessed;
-        localStorage.setItem("token", action.payload?.user?.accessToken);
-        localStorage.setItem("user", JSON.stringify(action.payload?.user));
         state.message = action.payload?.message;
+
+        if (action.payload.isSuccessed) {
+          state.user = action.payload?.user;
+          state.token = action.payload?.user?.accessToken;
+          localStorage.setItem("token", action.payload?.user?.accessToken);
+          localStorage.setItem("user", JSON.stringify(action.payload?.user));
+        } else {
+          state.error = action.payload?.message || "Login failed";
+        }
       })
       .addCase(ConfirmOTP.fulfilled, (state, action) => {
         state.user = action.payload?.user;
@@ -151,6 +196,7 @@ const authSlice = createSlice({
         state.message = action.payload;
       })
       .addCase(LoginUser.rejected, (state, action) => {
+        //console.log("rejected");
         state.loading = false;
         state.error = action.payload;
         state.success = false;
@@ -161,7 +207,31 @@ const authSlice = createSlice({
         state.error = action.payload;
         state.success = false;
         state.message = action.payload;
+      })
+      .addCase(changePassword.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+        state.success = null;
+        state.message = null;
+      })
+      // Password change successful
+      .addCase(changePassword.fulfilled, (state, action) => {
+        state.user = action.payload?.user;
+        state.loading = false;
+        state.success = action.payload.isSuccessed;
+        localStorage.setItem("token", action.payload?.user?.accessToken);
+        localStorage.setItem("user", JSON.stringify(action.payload?.user));
+        state.message = action.payload?.message;
+      })
+      // Password change failed
+      .addCase(changePassword.rejected, (state, action) => {
+       // console.log("rejectttt");
+        state.loading = false;
+        state.success = false;
+        state.error = action?.payload;
+        state.message = action?.payload;
       });
+
     // .addMatcher(
     //   (action) => action.type.endsWith("/pending"),
     //   (state) => {
@@ -188,5 +258,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { logout } = authSlice.actions;
+export const { logout, clearAuthState } = authSlice.actions;
 export default authSlice.reducer;

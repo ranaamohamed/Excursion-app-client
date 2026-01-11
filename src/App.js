@@ -21,6 +21,7 @@ import OTPInput from "./components/AuthPage/OTP/OTPInput";
 import BookingConfirmation from "./components/Booking/Form/BookingConfirmation";
 import AllDestination from "./components/AllDestinations/AllDestination";
 import CommingSoon from "./components/CommingSoon/CommingSoon";
+import Profile from "./components/ProfilePage/Profile";
 function App() {
   // const DefaultContainer = ({ match }) => {
 
@@ -58,6 +59,7 @@ function App() {
           <Route path="/MyWishing" element={<WishingCart />} />
           <Route path="/MyBooking" element={<MyBooking />} />
           <Route path="/Destinations" element={<AllDestination />} />
+          <Route path="/MyProfile" element={<Profile />} />
           <Route path="*" element={<CommingSoon />} />
         </Route>
         <Route element={<SecLayout />}>

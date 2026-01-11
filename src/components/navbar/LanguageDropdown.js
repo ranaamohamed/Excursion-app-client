@@ -17,7 +17,9 @@ const LanguageDropdown = () => {
 
   // Function to handle language change from dropdown
   const changeLang = (lang) => {
+    // console.log("lang");
     if (lang !== currentLang && !isLoading) {
+      //console.log("lang", lang);
       setCurrentLang(lang); // Update state
       setLanguage(lang); // Update library's language
       localStorage.setItem("lang", lang); // Persist in localStorage

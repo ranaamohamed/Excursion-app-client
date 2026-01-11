@@ -6,7 +6,30 @@
   height: 70px;
   outline: 0;
   background-image: none;
-
+  z-index: 1055;
+  //position: fixed;
+  width: 100%;
+  //top: 0;
+  .navbar-collapse {
+    z-index: 1055;
+    @media (max-width: 991px) {
+      background-color: $secondary-color;
+      border: 0; /* or your navbar bg */
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 1055;
+      padding: 1rem;
+      text-align: left;
+    }
+    .nav_icon {
+      @media (max-width: 991px) {
+        display: inline-block;
+        margin-top: 20px;
+      }
+    }
+  }
   .logo {
     width: 160px;
 
@@ -65,4 +88,26 @@
   //       color: #b181d6;
   //     }
   //   }
+}
+.trips_drop_menu {
+  min-width: 180px !important;
+  left: 100% !important;
+  @media (max-width: 991px) {
+    left: 0 !important;
+  }
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  .trip-item {
+    font-size: 15px;
+    svg {
+      margin: 0 5px;
+    }
+  }
+}
+.dropstart .dropdown-toggle::before {
+  display: none;
+}
+.trips_toggle {
+  @media (max-width: 991px) {
+    display: block !important;
+  }
 }

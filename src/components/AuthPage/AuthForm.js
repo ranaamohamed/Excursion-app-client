@@ -8,6 +8,7 @@ import {
   FloatingLabel,
   InputGroup,
 } from "react-bootstrap";
+import Swal from "sweetalert2";
 import { LoginUser, RegisterUser } from "../../redux/slices/authSlice";
 import { useTranslation, getLanguage } from "react-multi-lang";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,7 +17,7 @@ import GoogleLoginButton from "./googleLoginButton";
 import parse from "html-react-parser";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import LoadingPage from "../Loader/LoadingPage";
-import PopUp from "../Shared/popup/PopUp";
+// import PopUp from "../Shared/popup/PopUp";
 function AuthForm({ type, isAuthRedirect, redirectPath }) {
   const t = useTranslation();
   const dispatch = useDispatch();
@@ -100,7 +101,7 @@ function AuthForm({ type, isAuthRedirect, redirectPath }) {
   };
   const signin = (event) => {
     // let { isAuthRedirect, redirectPath } = props;
-    console.log("isAuthRedirect ", isAuthRedirect);
+    //console.log("isAuthRedirect ", isAuthRedirect);
     event.preventDefault();
     // validation
     if (validate()) {
@@ -118,12 +119,12 @@ function AuthForm({ type, isAuthRedirect, redirectPath }) {
         dispatch(LoginUser(data)).then((result) => {
           if (result.payload && result.payload.isSuccessed) {
             //if user login successfully so navigate to  home
-            setShowPopup(false);
+            // setShowPopup(false);
             if (result.payload.emailConfirmed == true) {
               // ✅ Get last page (if exists)
               const redirectTo =
                 localStorage.getItem("redirect_after_login") || "/";
-              console.log("redirectTo ", redirectTo);
+              //console.log("redirectTo ", redirectTo);
               // 🧹 Remove it once used
               localStorage.removeItem("redirect_after_login");
               navigate(redirectTo);
@@ -136,8 +137,13 @@ function AuthForm({ type, isAuthRedirect, redirectPath }) {
               navigate("/verifyEmail", { replace: true, state: { path: "/" } });
             }
           } else {
-            setPopupMessage(result.payload.message);
-            setShowPopup(true);
+            // setPopupMessage(result.payload.message);
+            // setShowPopup(true);
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: result.payload?.message,
+            });
           }
         });
       } else {
@@ -146,7 +152,7 @@ function AuthForm({ type, isAuthRedirect, redirectPath }) {
         dispatch(RegisterUser(data)).then((result) => {
           if (result.payload && result.payload?.isSuccessed) {
             //if user register successfully so navigate to  verify email first
-            setShowPopup(false);
+            //setShowPopup(false);
             // navigate("/verifyEmail", {
             //   replace: true,
             //   state: { path: "/" },
@@ -168,8 +174,14 @@ function AuthForm({ type, isAuthRedirect, redirectPath }) {
               navigate("/verifyEmail", { replace: true, state: { path: "/" } });
             }
           } else {
-            setPopupMessage(result.payload.message);
-            setShowPopup(true);
+            // setPopupMessage(result.payload.message);
+            // setShowPopup(true);
+
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: result.payload?.message,
+            });
           }
         });
       }
@@ -388,7 +400,7 @@ function AuthForm({ type, isAuthRedirect, redirectPath }) {
       />
       {loading && <LoadingPage />}
       {/* Error Popup */}
-      {showPopup && (
+      {/* {showPopup && (
         <PopUp
           show={showPopup}
           closeAlert={() => setShowPopup(false)}
@@ -396,7 +408,7 @@ function AuthForm({ type, isAuthRedirect, redirectPath }) {
           type={popupType}
           showConfirmButton={true}
         />
-      )}
+      )} */}
     </div>
   );
 }

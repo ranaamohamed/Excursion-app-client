@@ -9,6 +9,8 @@
   text-align: left;
   border-radius: 50px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  z-index: 2;
+  position: relative;
   .cmyNjn > .wrapper {
     border-radius: 0;
     border: 1px solid #ddd !important;
@@ -30,6 +32,9 @@
       display: none;
     }
   }
+  .form-label {
+    padding-left: 15px;
+  }
   .frm_input {
     height: 50px;
     border-radius: 50px;
@@ -50,9 +55,12 @@
     }
   }
   .pick_input {
-    z-index: 9999;
+    z-index: 999;
+    @media (max-width: $minSmall) {
+      margin-bottom: 10px;
+    }
     .wrapper {
-      z-index: 9999;
+      z-index: 999;
     }
   }
 

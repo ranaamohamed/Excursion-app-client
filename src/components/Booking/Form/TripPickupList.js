@@ -42,7 +42,7 @@ function TripPickupList({ trip_id, onLocationSelect }) {
   // Handle selection
   const handleSelect = (item) => {
     setSelected(item);
-    console.log("itemmm ", item);
+    //console.log("itemmm ", item);
     const lat = item.pickup_lat;
     const lng = item.pickup_long;
     const label = item.pickup_name;
@@ -59,7 +59,7 @@ function TripPickupList({ trip_id, onLocationSelect }) {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-  console.log("selected", selectedLocation);
+  //console.log("selected", selectedLocation);
   return (
     <div className="search-select" ref={wrapperRef}>
       <Form.Label className="formLabel">{t("Booking.Pickup")}</Form.Label>

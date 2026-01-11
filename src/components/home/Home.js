@@ -6,6 +6,9 @@ import { FaLifeRing, FaMapMarkerAlt, FaRegCalendarAlt } from "react-icons/fa";
 import BookForm from "./BookForm/bookForm";
 import TopTripSection from "./TopTripSection";
 import TopDestSection from "./TopDestSection";
+import SubscribeSection from "./SubscribeSection/SubscribeSection";
+import TourTypes from "./TourTypesSection/TourTypes";
+
 const Home = () => {
   const t = useTranslation();
   return (
@@ -18,7 +21,7 @@ const Home = () => {
             {t("Home.SubHeading")}
           </h3>
           <a href="#book_form" className="main_btn">
-            Learn More
+            {t("Home.LearnMore")}
           </a>
         </div>
       </section>
@@ -29,6 +32,8 @@ const Home = () => {
       </Container>
       <TopDestSection />
       <TopTripSection />
+      <SubscribeSection />
+      <TourTypes />
 
       {/* <section className="landing_about" id="about">
         <Container>

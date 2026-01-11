@@ -1,0 +1,79 @@
+@import "../../../styles/variables";
+
+.subscribe-section {
+  background: linear-gradient(90deg, #0b2a5b, #0d2f6f);
+  //background: linear-gradient(90deg, #e5f0fd, #e5f0fd);
+  padding: 60px 0;
+  color: #fff;
+
+  .content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .icon {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 16px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin: 0;
+      opacity: 0.9;
+      font-size: 16px;
+    }
+  }
+
+  .subscribe-form {
+    display: flex;
+    gap: 12px;
+
+    .email-input {
+      height: 56px;
+      border-radius: 8px;
+      border: none;
+      padding: 0 20px;
+      font-size: 16px;
+    }
+
+    .subscribe-btn {
+      height: 56px;
+      padding: 0 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      background-color: $secondary-color;
+      border: none;
+
+      &:hover {
+        background-color: $secondary-color;
+      }
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 992px) {
+    .content {
+      margin-bottom: 20px;
+      text-align: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .subscribe-form {
+      flex-direction: column;
+
+      .subscribe-btn {
+        width: 100%;
+      }
+    }
+  }
+}
