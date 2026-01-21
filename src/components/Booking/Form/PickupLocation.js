@@ -19,7 +19,7 @@ const center = {
 function PickupLocation({ show, onHide, setPickupData }) {
   const mapRef = useRef();
   const [selectedLocation, setSelectedLocation] = useState(null);
-  //console.log("selectedLocation ", selectedLocation);
+
   return (
     <Modal show={show} onHide={onHide} size="lg" centered>
       <Modal.Header closeButton>
