@@ -26,7 +26,7 @@
     "react-datetime-picker": "^6.0.1",
     "react-dom": "^18.2.0",
     "react-icons": "^5.5.0",
-    "react-leaflet": "^5.0.0",
+    "react-leaflet": "^4.2.1",
     "react-multi-carousel": "^2.8.6",
     "react-multi-lang": "^2.2.0",
     "react-otp-input": "^3.1.1",
