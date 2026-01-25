@@ -29,22 +29,22 @@ api.interceptors.request.use(
     const token = getToken();
 
     // if (token) {
-    console.log("config.skipAuth ", config.skipAuth);
+   // console.log("config.skipAuth ", config.skipAuth);
 
-    console.log("token ", token);
+    //console.log("token ", token);
 
     if (config.skipAuth) {
       config.headers["Content-Type"] = "application/json";
     }
     // ✅ Only attach token if `config.skipAuth` is NOT true
     if (!config.skipAuth && token) {
-      console.log("request 1 ");
+      //console.log("request 1 ");
       config.headers.Authorization = `Bearer ${token}`;
       config.headers["Content-Type"] = "application/json";
     }
     // 🚫 If request requires auth but token is missing, show alert
     if (!config.skipAuth && !token && !showingLoginAlert) {
-      console.log("request 2 ");
+      //console.log("request 2 ");
       showingLoginAlert = true;
       localStorage.setItem("redirect_after_login", window.location.pathname);
       // 🧠 Show popup for user to log in first
@@ -75,10 +75,10 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    console.log("🚨 AXIOS INTERCEPTOR CAUGHT ERROR:", error);
+    //console.log("🚨 AXIOS INTERCEPTOR CAUGHT ERROR:", error);
 
     if (!error.response) {
-      console.error("Network error or server not reachable");
+     // console.error("Network error or server not reachable");
       return Promise.reject(error);
     }
 

@@ -69,8 +69,11 @@ function TripList() {
   }, [dispatch]);
 
   useEffect(() => {
-    setSelectedIds(state?.trip_types);
-    setSelectedDestinationIds(state?.destination_lst);
+    if (state != null) {
+      setSelectedIds(state?.trip_types || []);
+      setSelectedDestinationIds(state?.destination_lst || []);
+    }
+
     return () => {};
   }, [state]);
 
@@ -147,9 +150,11 @@ function TripList() {
     );
   };
   const handleDestinationtChange = (id) => {
+   // console.log("id: ", id);
+    //console.log("selected: ", selectedIds);
     setSelectedDestinationIds(
       (prev) =>
-        prev.includes(id)
+        prev?.includes(id)
           ? prev.filter((x) => x !== id) // remove if already selected
           : [...prev, id] // add if not selected
     );
@@ -168,7 +173,7 @@ function TripList() {
     setMinPrice(10);
     setMaxPrice(10000000);
   };
-  console.log("state ", sortedTrips);
+  //console.log("state ", selectedDestinationIds);
   return (
     <section className="centerSection">
       {loading && <LoadingPage />}

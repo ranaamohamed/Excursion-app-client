@@ -85,7 +85,7 @@ export default function SearchPlace({ setSelectedDest }) {
       </>
     );
   };
-  console.log("DestinationList ", Places);
+  //console.log("DestinationList ", Places);
   return (
     <>
       {/* {DestinationList !== null && DestinationList.length > 0 ? ( */}
