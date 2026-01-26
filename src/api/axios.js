@@ -76,7 +76,7 @@ api.interceptors.request.use(
   (config) => {
     const user = JSON.parse(localStorage.getItem("user"));
     const token = user?.accessToken;
-   // console.log("tokrn ", token);
+    // console.log("tokrn ", token);
     config.headers["Accept-Language"] = currenctLang;
     if (config.isFormData) {
       config.headers["Content-Type"] = "multipart/form-data";
@@ -209,7 +209,7 @@ api.interceptors.response.use(
       } catch (refreshError) {
         processQueue(refreshError, null);
         localStorage.removeItem("user");
-        //window.location.href = "/auth";
+        window.location.href = "/auth";
         return Promise.reject(refreshError);
       } finally {
         isRefreshing = false;
